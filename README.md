@@ -23,6 +23,8 @@
 
 
 ### Model
+---
+
 * For the neural network model, transfer learning is used by adding a input and output layers to the Keras' InceptionV3 model.
 * Adam optimizer with default 1e-3 learning rate is used.
 * `generator` function is used to read the images in batches and provide them to the fit function as requested. Loading all the input data into variables deemed impossible due to large size of the input data.
