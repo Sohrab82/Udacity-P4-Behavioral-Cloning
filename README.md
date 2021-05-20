@@ -13,7 +13,7 @@
 #### Files
 * [model.py](./model.py) (script used to create and train the model)
 * [drive.py](./drive.py) (script to drive the car)
-* model.h5 (a trained Keras model)
+* [model.h5](https://drive.google.com/file/d/1btzSviMPpu1xjrLYtc1MkZ2lOISEPh9T/view?usp=sharing) (a trained Keras model)
 * [video.mp4](./video.mp4) (a video recording of your vehicle driving autonomously around the track)
 
 
@@ -25,9 +25,13 @@
 ### Model
 * For the neural network model, transfer learning is used by adding a input and output layers to the Keras' InceptionV3 model.
 * Adam optimizer with default 1e-3 learning rate is used.
-* generator function is used to read the images in batches and provide them to the fit function as requested. Loading all the input data into variables deemed impossible due to large size of the input data.
-* input data is split into training and validation data (80% vs 20%)
+* `generator` function is used to read the images in batches and provide them to the fit function as requested. Loading all the input data into variables deemed impossible due to large size of the input data.
+* Input data is split into training and validation data (80% vs 20%)
 * The car managed to drive in both directions on the track with the following model.
+
+#### Preprocessing
+* A moving average filter with a with of 3 samples is applied to the steering wheel angles as the data obtained with the keyboard does not reflect the true steering angle at consequitive frames.
+* `flip_lr` is applied to every image to balance the number of right and left turns. In the original map, the number of left turns is much higher.
 
 
 #### Input layers
