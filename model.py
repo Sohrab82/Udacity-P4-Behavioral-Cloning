@@ -160,7 +160,7 @@ new_model.evaluate(validation_generator, steps=np.ceil(
     len(validation_samples) / batch_size))
 
 # save the model
-new_model.save('model.h5')
+new_model.save('model.h5', include_optimizer=False, save_traces=False)
 
 
 # predict the steering angle for some random images
