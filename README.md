@@ -40,8 +40,8 @@
 * Cropping2D layer to crop the top (sky) and bottom (bonet) of the image
 
 #### InceptionV3 model
-Inception model has over 22 million trainable parameters. In this project, pretrained model is loaded an the parameters are to `trainable=False`. Te top layers (the dense layers at the end) has been removed to be able to add our own layers and use the model for regression (the steering angle).
-At the output of the top (last) layer, 2048 channels exist which for our current input size, will be 1x8 (i.e (None, 1, 8, 2048).
+Inception model has over 22 million trainable parameters. In this project, pretrained model is loaded an the parameters are to `trainable=False`. The top layers (the dense layers at the end) have been removed to be able to add our own layers and use the model for regression (the steering angle).
+At the output of last layer, 2048 channels exist which, for our current input image size, will have a size of 1x8, i.e (None, 1, 8, 2048).
 
 #### Output layers
 * [SeparableConv2D](https://towardsdatascience.com/a-basic-introduction-to-separable-convolutions-b99ec3102728) layer with kernel size of 1x4 to apply convolution on the 2048 channels from the Inception model. SeparableConv2D has been used instead of Conv2D to remove the number of trainable parameters. Test results showe lower validation loss for this type of convolution.
